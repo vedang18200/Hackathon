@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Hub</title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <p>Controlhub.io</p>
+            </div>
+                <ul>
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+        </nav>
+    </header>
+    <section id="home" class="home">
+        <div class="cover">
+            <div class="box">
+                <img src={% static "img/helmet.jpg" %}  alt="helmet">
+                <h2>Traffic rules monitor</h2>
+                <p>
+                    The helmet detection program using machine learning (ML) is designed to identify whether a rider is wearing a helmet or not.  
+                    This program aims to promote road safety by encouraging the use of helmets while riding.
+                </p>
+            </div>
+            <div class="box">
+                <img src={% static "img/accident.jpg" %} alt="Accident">
+                <h2>Emergance detection</h2>
+                <p>
+                    An accident detection program using machine learning (ML) analyzes sensor data such as acceleration, orientation, and visual cues to detect accidents.
+                    This program enhances safety by quickly alerting others to potential accidents, enabling timely response and assistance.
+
+                </p>
+            </div>
+            <div class="box">
+                <img src={% static "img/deepfake.jpg" %} alt="deepfake">
+                <h2>Cyber Security </h2>
+                <p>
+                    A deepfake detection code using machine learning (ML) analyzes visual and audio features to distinguish between real and fake media. 
+                    When a deepfake is detected, the code flags it as fake, helping to mitigate the spread of misinformation and maintain media integrity.
+                    
+                </p>
+            </div>
+     </div>
+    </section>
+    
+    <section id="about">About</section>
+    <section id="contact">Contact</section>
+    <script src={% static "js/script1.js" %}></script>
+</body>
+</html>

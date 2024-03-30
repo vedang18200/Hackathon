@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/helmet.css' %}">
+
+    <title>Helmet Detection</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <p>Helmet detection</p>
+            </div>
+        </nav>
+    </header>
+    <div class="cover">
+        <div class="box">
+            <img src="{% static "img/upload.jpg" %}" alt="">
+        <form action="/process_video/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="video_file">
+        <button type="submit">Process Video</button>
+    </form>
+        </div>
+    </div>
+</body>
+</html>

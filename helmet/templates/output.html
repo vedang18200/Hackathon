@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/output.css'%} ">
+    <title>Result</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <p>Processing status</p>
+            </div>
+        </nav>
+    </header>
+    <div class="mes">
+        <h2>Processing completed <a href="{%url 'rec'%}">Click here</a> to redirect</h2>
+       
+    </div>
+</body>
+</html>
