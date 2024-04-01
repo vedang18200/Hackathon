@@ -32,7 +32,7 @@ nav {
 
 nav ul {
     float: right;
-
+    
 }
 
 nav li h2{
@@ -220,4 +220,24 @@ section body .contact-members{
 {
     width:500px;
     height:500px
+}
+.beta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f242d;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.beta a {
+    text-decoration: none;
+    color: beige;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.beta a:hover {
+    color: blueviolet;
+    transform: scale(1.2);
 }

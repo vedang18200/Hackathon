@@ -6,6 +6,8 @@ import time
 from my_functions import *  # Import your functions from my_functions.py
 import cv2
 
+def hole(request):
+    return render(request,'pothole.html')
 def rec(request):
     return render(request,'index1.html')
 def login(request):
@@ -40,11 +42,10 @@ def process_video(request):
         source = 'uploaded_video.mp4'  # Use the uploaded video file as the source
 
 
-        save_video = True # want to save video? (when video as source)
-        show_video=True # set true when using video file
-        save_img=False  # set true when using only image file to save the image
-        # when using image as input, lower the threshold value of image classification
-
+        save_video = True 
+        show_video=True
+        save_img=False 
+       
         #saveing video as output
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         out = cv2.VideoWriter('output.avi', fourcc, 20.0, frame_size)
@@ -219,6 +220,65 @@ def crash(request):
         cap.release()
         cv2.destroyAllWindows()
         print('Execution completed')
+        return render(request,'output.html')
+    else:
+        return HttpResponse('Please upload a video file.')
+#==========================================================================================================================
+def pot(request):
+    
+    if request.method == 'POST' and request.FILES.get('video_file'):
+        video_file = request.FILES['video_file']
+
+        # Save the uploaded video file to a temporary location
+        with open('pothole_video.mp4', 'wb+') as destination:
+            for chunk in video_file.chunks():
+                destination.write(chunk)
+            from ultralytics import YOLO
+            import cv2
+            import numpy as np
+
+            # Load a model
+            model = YOLO("best1.pt")
+            class_names = model.names
+            cap = cv2.VideoCapture('pothole_video.mp4')
+            count = 0
+
+            while True:
+                ret, img = cap.read()
+                if not ret:
+                    break
+                count += 1
+                if count % 3 != 0:
+                    continue
+                
+                img = cv2.resize(img, (1020, 500))
+                h, w, _ = img.shape
+                results = model.predict(img)
+
+                for r in results:
+                    boxes = r.boxes  
+                    masks = r.masks  
+                    
+                if masks is not None:
+                    masks = masks.data.cpu()
+                    for seg, box in zip(masks.data.cpu().numpy(), boxes):
+                        seg = cv2.resize(seg, (w, h))
+                        contours, _ = cv2.findContours((seg).astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+                        for contour in contours:
+                            d = int(box.cls)
+                            c = class_names[d]
+                            x, y, x1, y1 = cv2.boundingRect(contour)
+                            cv2.polylines(img, [contour], True, color=(0, 0, 255), thickness=2)
+                            cv2.putText(img, c, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+                            
+                cv2.imshow('img', img)
+                if cv2.waitKey(1) & 0xFF == ord('q'):  
+                    break
+
+            cap.release()
+            cv2.destroyAllWindows()
+            print('Execution completed')
         return render(request,'output.html')
     else:
         return HttpResponse('Please upload a video file.')

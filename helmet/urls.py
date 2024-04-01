@@ -9,5 +9,7 @@ urlpatterns = [
     path('accident', views.accident, name='accident'),
     path('crash/',views.crash,name='crash'),#accident
     path('process_video/', views.process_video, name='process_video'),#helmet
-    path('rec',views.rec,name='rec')
+    path('rec',views.rec,name='rec'),
+    path('hole',views.hole,name='hole'),
+    path('pot',views.pot,name='pot'),
 ]

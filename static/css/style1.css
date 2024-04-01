@@ -193,3 +193,24 @@ section body .contact-members{
     width:500px;
     height:500px
 }
+
+.beta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f242d ;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+  
+}
+.beta a{
+    text-decoration: none;
+    color:beige;
+    
+}
+
+.beta a:hover{
+    color:blueviolet ;
+    transform: scale(2px);
+}
