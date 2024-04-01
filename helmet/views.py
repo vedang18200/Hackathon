@@ -127,7 +127,6 @@ def process_video(request):
     else:
          return HttpResponse('Please upload a video file.')
 #==================================================================================================================================
-    
 def crash(request):
     
     if request.method == 'POST' and request.FILES.get('video_file'):

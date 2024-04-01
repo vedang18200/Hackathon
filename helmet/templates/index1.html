@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control Hub</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
                 <ul>
                     <li class="active"><a href="#home">Home</a></li>
                     <li><a href="#about">About us</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#ourteam">Our Team</a></li>
                     <li><h2>Welcome Admin</h2></li>
                 </ul>
         </nav>
@@ -54,14 +55,77 @@
                     When a deepfake is detected, the code flags it as fake, helping to mitigate the spread of misinformation and maintain media integrity.
                 </p>
                 <div class="link">
-                    <a href="#">Launch it</a>
+                    <a href=" http://127.0.0.1:8001/">Launch it</a>
                 </div>
             </div>
      </div>
     </section>
     
-    <section id="about">About</section>
-    <section id="contact">Contact</section>
+    <section id="about">
+        <div id="about-head">
+            <h1>GIVING BACK CONTROL TO WHERE IT BELONGS. TO THE PEOPLE.</h1>
+        </div>
+  
+        <div>
+            <img src={% static "img/handy.png" %} alt="hands of a man and machine" id="hands">
+        </div>
+        
+        <div id="about-sub">
+            Our aim was to create a portal where users can make sure and be aware of how the everday things they use can be against them.
+        </div>
+  
+        
+        
+    </section>
+  
+      <section id="contact">
+         <div id ="contact-head"> <h1> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp MEET OUR TEAM :</h1><br ><br  ><div></div>
+       <body>
+       <div id ="contact-members">
+        <h3>
+          &nbsp &nbsp &nbsp &nbsp &nbsp1. &nbspVedang Deshmukh (Backend And Machine learning)<br>
+          &nbsp &nbsp &nbsp &nbsp &nbsp2. &nbspArya Sawant (PPT and Creative Work) <br>
+          &nbsp &nbsp &nbsp &nbsp &nbsp3. &nbspUmesh Sarkar (Frontend)<br>
+          &nbsp &nbsp &nbsp &nbsp &nbsp4. &nbspHarsh Gupta (Frontend) <br>
+        </h3>
+         </div>
+  
+         <br>
+         <br>
+         <br>
+         <div id="contact=">
+            &nbsp &nbsp &nbsp &nbsp &nbsp In response to rising concerns over road safety, we're developing a cutting-edge Road Safety Monitoring and Accident Detection System.
+            <br><br>
+          &nbsp &nbsp &nbsp &nbsp &nbsp Utilizing computer vision technology, it will ensure real-time monitoring of helmet compliance and prompt 
+          detection of accidents.
+          <br><br>
+          &nbsp &nbsp &nbsp &nbsp &nbsp Our mission is to mitigate risks and safeguard the well-being of motorcycle riders and passengers on the roads.
+          <br><br>
+          &nbsp &nbsp &nbsp &nbsp &nbsp Our team has wholeheartedly contributed to this codebase ensuring maximum safety and security of the public .
+           </div>
+  
+        </body>
+        
+        </section>
+      </section>
+    <div class="footer">
+        <div class="socialicon">
+             <a href="#"><i class="fa-brands fa-facebook"></i></a>
+             <a href="#"><i class="fa-brands fa-instagram"></i></a>
+             <a href="#"><i class="fa-brands fa-twitter"></i></a>
+             <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footernav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#ourteam">Out team</a></li>
+            </ul>
+        </div>
+        <div class="bottomfooter">
+            <p>Copyright &copy;2024; Designed by <span>Team Alt+ctrl+Delete</span></p>
+        </div>
+    </div>
     <script src={% static "js/script1.js" %}></script>
 </body>
 </html>
